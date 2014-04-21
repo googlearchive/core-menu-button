@@ -1,0 +1,9 @@
+{
+  "name": "core-menu-button",
+  "private": false,
+  "dependencies": {
+    "polymer": "Polymer/polymer#master",
+    "core-icon-button": "Polymer/core-icon-button#master",
+    "core-overlay": "Polymer/core-overlay#master"
+  }
+}
