@@ -11,18 +11,22 @@ license that can be found in the LICENSE file.
 
 #overlay {
   position: absolute;
-  left: 4px;
-  top: 53px;
+  left: 0px;
+  top: 40px;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 3px;
 }
 
 #overlay[halign=right] {
   left: auto;
-  right: 4px;
+  right: 0px;
 }
 
 #overlay[valign=top] {
   top: auto;
-  bottom: 53px;
+  bottom: 40px;
 }
 
 core-menu {
