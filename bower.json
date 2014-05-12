@@ -2,8 +2,9 @@
   "name": "core-menu-button",
   "private": false,
   "dependencies": {
-    "polymer": "Polymer/polymer#master",
-    "core-icon-button": "Polymer/core-icon-button#master",
-    "core-overlay": "Polymer/core-overlay#master"
-  }
+    "polymer": "Polymer/polymer#0.2.4",
+    "core-icon-button": "Polymer/core-icon-button#0.2.4",
+    "core-overlay": "Polymer/core-overlay#0.2.4"
+  },
+  "version": "0.2.4"
 }
