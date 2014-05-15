@@ -33,12 +33,39 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link href="../core-menu/core-menu.html" rel="import">
 <link href="../core-overlay/core-overlay.html" rel="import">
 
-<polymer-element name="core-menu-button" attributes="icon src selected opened halign valign multi">
+<polymer-element name="core-menu-button" attributes="icon label src selected opened halign valign multi inlineMenu">
   <template>
     <link rel="stylesheet" href="core-menu-button.css">
-    <core-overlay target="{{$.overlay}}" opened="{{opened}}"></core-overlay>
-    <core-icon-button id="button" on-tap="{{toggle}}" src="{{src}}" icon="{{icon}}" active="{{opened}}"></core-icon-button>
+    <core-overlay target="{{$.overlay}}" opened="{{opened}}" layered?="{{!inlineMenu}}"></core-overlay>
+    <core-icon-button id="button" on-tap="{{toggle}}" src="{{src}}" icon="{{icon}}" active="{{opened}}"><span>{{label}}</span></core-icon-button>
     <div id="overlay" halign="{{halign}}" valign="{{valign}}">
+      <style>
+        #overlay {
+          position: absolute;
+          left: 0px;
+          top: 40px;
+          padding: 8px;
+          background: #fff;
+          border: 1px solid #ccc;
+          border-radius: 3px;
+          /* overlay styling must be complete */
+          font-size: 1rem;
+        }
+
+        core-menu {
+          margin: 0;
+        }
+
+        #overlay[halign=right] {
+          left: auto;
+          right: 0px;
+        }
+
+        #overlay[valign=top] {
+          top: auto;
+          bottom: 40px;
+        }
+      </style>
       <core-menu id="menu" selected="{{selected}}" selectedItem="{{selectedItem}}" selectedClass="{{selectedClass}}" valueattr="{{valueattr}}" multi="{{multi}}" on-core-select="{{closeAction}}">
         <content select="*"></content>
       </core-menu>
@@ -65,6 +92,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        * @type boolean
        */
       opened: false,
+      /**
+       * Set to true to cause the menu popup to be displayed inline rather 
+       * than in its own layer.
+       * @attribute inlineMenu
+       * @type boolean
+       */
+      inlineMenu: false,
       /**
        * Horizontally align the overlay with the button. Accepted values are
        * ["left", "center", "right"].

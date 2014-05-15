@@ -20,12 +20,14 @@ license that can be found in the LICENSE file.
     }
 
     core-toolbar {
-    	background-color: #cfa0e9;
+      background-color: #cfa0e9;
+      overflow: hidden;
     }
   </style>
 </head>
 <body class="core-body-text" unresolved>
 
+	
 	<br>
 	<br>
 	<br>
@@ -36,39 +38,31 @@ license that can be found in the LICENSE file.
 	<br>
 	<br>
 	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-	<br>
-
 	<core-toolbar>
 
-		<core-menu-button>
+		<core-menu-button icon="menu">
 
 			<core-item icon="settings" label="Settings"></core-item>
-			<core-item icon="dialog" label="Dialog"></core-item>
+			<core-item icon="add" label="Add"></core-item>
 			<core-item icon="search" label="Search"></core-item>
 
 		</core-menu-button>
 
 		<div core-flex>Toolbar</div>
 
-		<core-menu-button halign="right">
+		<core-menu-button icon="add" halign="right">
 
-			<core-item icon="settings" label="Settings"></core-item>
-			<core-item icon="dialog" label="Dialog"></core-item>
-			<core-item icon="search" label="Search"></core-item>
+			<core-item icon="star-rate" label="Rate"></core-item>
+			<core-item icon="today" label="Today"></core-item>
+			<core-item icon="keep" label="Keep"></core-item>
 
 		</core-menu-button>
 
-		<core-menu-button halign="right" valign="top">
+		<core-menu-button icon="more-vert" halign="right" valign="top">
 
-			<core-item icon="settings" label="Settings"></core-item>
-			<core-item icon="dialog" label="Dialog"></core-item>
-			<core-item icon="search" label="Search"></core-item>
+			<core-item icon="visibility" label="Visibility"></core-item>
+			<core-item icon="extension" label="Extension"></core-item>
+			<core-item icon="info" label="Info"></core-item>
 
 		</core-menu-button>
 

@@ -8,27 +8,3 @@ license that can be found in the LICENSE file.
   position: relative;
   display: inline-block;
 }
-
-#overlay {
-  position: absolute;
-  left: 0px;
-  top: 40px;
-  padding: 8px;
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-#overlay[halign=right] {
-  left: auto;
-  right: 0px;
-}
-
-#overlay[valign=top] {
-  top: auto;
-  bottom: 40px;
-}
-
-core-menu {
-  margin: 0;
-}
