@@ -3,9 +3,10 @@
   "private": false,
   "dependencies": {
     "polymer": "Polymer/polymer#master",
+    "core-dropdown": "Polymer/core-dropdown#master",
     "core-icon-button": "Polymer/core-icon-button#master",
     "core-item": "Polymer/core-item#master",
-    "core-popup-menu": "Polymer/core-popup-menu#master",
+    "core-menu": "Polymer/core-menu#master",
     "core-toolbar": "Polymer/core-toolbar#master"
   }
 }
