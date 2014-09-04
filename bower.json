@@ -3,7 +3,7 @@
   "private": false,
   "dependencies": {
     "polymer": "Polymer/polymer#master",
-    "core-dropdown": "Polymer/core-dropdown#master",
+    "core-dropdown-menu": "Polymer/core-dropdown-menu#master",
     "core-icon-button": "Polymer/core-icon-button#master",
     "core-item": "Polymer/core-item#master",
     "core-menu": "Polymer/core-menu#master",
