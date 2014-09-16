@@ -38,7 +38,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <link rel="stylesheet" href="core-menu-button.css">
     <core-icon-button id="button" on-tap="{{toggle}}" src="{{src}}" icon="{{icon}}" active="{{opened}}"><span>{{label}}</span></core-icon-button>
     <core-dropdown id="dropdown" relatedTarget="{{$.button}}" opened="{{opened}}" halign="{{halign}}" valign="{{valign}}">
-      <core-menu selected="{{selected}}" selectedItem="{{selectedItem}}" selectedClass="{{selectedClass}}" valueattr="{{valueattr}}" on-core-select="{{closeAction}}">
+      <core-menu selected="{{selected}}" selectedItem="{{selectedItem}}" selectedClass="{{selectedClass}}" valueattr="{{valueattr}}" on-core-activate="{{closeAction}}">
         <content select="*"></content>
       </core-menu>
     </core-dropdown>
@@ -84,14 +84,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
          * @attribute halign
          * @type string
          */
-        halign: 'auto',
+        halign: 'left',
 
         /**
          * Display the overlay on top or below the button.
          * @attribute valign
          * @type string
          */
-        valign: 'auto'
+        valign: 'top'
 
       },
 
