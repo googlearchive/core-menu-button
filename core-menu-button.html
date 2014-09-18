@@ -38,7 +38,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <link rel="stylesheet" href="core-menu-button.css">
     <core-icon-button id="button" on-tap="{{toggle}}" src="{{src}}" icon="{{icon}}" active="{{opened}}"><span>{{label}}</span></core-icon-button>
     <core-dropdown id="dropdown" relatedTarget="{{$.button}}" opened="{{opened}}" halign="{{halign}}" valign="{{valign}}">
-      <core-menu selected="{{selected}}" selectedItem="{{selectedItem}}" selectedClass="{{selectedClass}}" valueattr="{{valueattr}}" on-core-activate="{{closeAction}}">
+      <core-menu
+          selected="{{selected}}"
+          valueattr="{{valueattr}}"
+          selectedClass="{{selectedClass}}"
+          selectedProperty="{{selectedProperty}}"
+          selectedAttribute="{{selectedAttribute}}"
+          selectedItem="{{selectedItem}}"
+          selectedModel="{{selectedModel}}"
+          selectedIndex="{{selectedIndex}}"
+          excludedLocalNames="{{excludedLocalNames}}"
+          on-core-activate="{{closeAction}}">
         <content select="*"></content>
       </core-menu>
     </core-dropdown>
@@ -58,13 +68,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         src: '',
 
         /**
-         * The index of the selected menu item.
-         * @attribute selected
-         * @type number
-         */
-        selected: '',
-
-        /**
          * Set to true to open the menu.
          * @attribute opened
          * @type boolean
@@ -72,7 +75,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         opened: false,
 
         /**
-         * Set to true to cause the menu popup to be displayed inline rather 
+         * Set to true to cause the menu popup to be displayed inline rather
          * than in its own layer.
          * @attribute inlineMenu
          * @type boolean
@@ -91,7 +94,97 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
          * @attribute valign
          * @type string
          */
-        valign: 'top'
+        valign: 'top',
+
+        /**
+         * The index of the selected menu item.
+         * @attribute selected
+         * @type number
+         */
+        selected: '',
+
+        /**
+         * Specifies the attribute to be used for "selected" attribute.
+         *
+         * @attribute valueattr
+         * @type string
+         * @default 'name'
+         */
+        valueattr: 'name',
+
+        /**
+         * Specifies the CSS class to be used to add to the selected element.
+         *
+         * @attribute selectedClass
+         * @type string
+         * @default 'core-selected'
+         */
+        selectedClass: 'core-selected',
+
+        /**
+         * Specifies the property to be used to set on the selected element
+         * to indicate its active state.
+         *
+         * @attribute selectedProperty
+         * @type string
+         * @default ''
+         */
+        selectedProperty: '',
+
+        /**
+         * Specifies the attribute to set on the selected element to indicate
+         * its active state.
+         *
+         * @attribute selectedAttribute
+         * @type string
+         * @default 'active'
+         */
+        selectedAttribute: 'active',
+
+        /**
+         * Returns the currently selected element. In multi-selection this returns
+         * an array of selected elements.
+         * Note that you should not use this to set the selection. Instead use
+         * `selected`.
+         *
+         * @attribute selectedItem
+         * @type Object
+         * @default null
+         */
+        selectedItem: null,
+
+        /**
+         * In single selection, this returns the model associated with the
+         * selected element.
+         * Note that you should not use this to set the selection. Instead use
+         * `selected`.
+         *
+         * @attribute selectedModel
+         * @type Object
+         * @default null
+         */
+        selectedModel: null,
+
+        /**
+         * In single selection, this returns the selected index.
+         * Note that you should not use this to set the selection. Instead use
+         * `selected`.
+         *
+         * @attribute selectedIndex
+         * @type number
+         * @default -1
+         */
+        selectedIndex: -1,
+
+        /**
+         * Nodes with local name that are in the list will not be included
+         * in the selection items.
+         *
+         * @attribute excludedLocalNames
+         * @type string
+         * @default ''
+         */
+        excludedLocalNames: ''
 
       },
 
@@ -115,7 +208,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       get selection() {
         return this.$.menu.selection;
       }
-      
+
     });
   </script>
 </polymer-element>
