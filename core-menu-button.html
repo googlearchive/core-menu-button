@@ -7,26 +7,51 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 <!--
-/**
- * @module Polymer Core Elements
- */
-/**
- * core-menu-button is a core-icon-button with a drop down menu
- * that allows the user to select an option. The drop down menu is styled with
- * an arrow pointing to the button, and can be positioned to the top or the
- * bottom of the button with the valign property. The valign property aligns
- * the menu to the left or right edge of the button.
- *
- * Example:
- *
- *     <core-menu-button selected="0">
- *       <core-item icon="settings" label="Settings"></core-item>
- *       <core-item icon="dialog" label="Dialog"></core-item>
- *       <core-item icon="search" label="Search"></core-item>
- *     </core-menu-button>
- *
- * @class core-menu-button
- */
+@module Polymer Core Elements
+
+`core-menu-button` is a `core-icon-button` that opens a drop-down menu
+that allows the user to select an option. You can position the drop-down
+menu with the `halign` and `valign` properties, or use CSS if more control
+over positioning is desired.
+
+Example:
+
+    <core-menu-button id="btn">
+         <core-item icon="settings" label="Settings"></core-item>
+         <core-item icon="dialog" label="Dialog"></core-item>
+         <core-item icon="search" label="Search"></core-item>
+    </core-menu-button>
+
+Style the drop-down by using the `core-menu-button::shadow #dropdown` selector:
+
+    /* position this drop-down below the button, and style it white on black. */
+    #btn::shadow #dropdown {
+        top: 38px;
+        color: #fff;
+        background: #000;
+    }
+
+@class core-menu-button
+@status beta
+@homepage github.io
+-->
+
+<!--
+Fired when an item's selection state is changed. This event is fired both
+when an item is selected or deselected. The `isSelected` detail property
+contains the selection state.
+
+@event core-select
+@param {Object} detail
+  @param {boolean} detail.isSelected true for selection and false for deselection
+  @param {Object} detail.item the item element
+-->
+<!--
+Fired when an item element is tapped.
+
+@event core-activate
+@param {Object} detail
+  @param {Object} detail.item the item element
 -->
 <link href="../polymer/polymer.html" rel="import">
 <link href="../core-dropdown/core-dropdown.html" rel="import">
@@ -95,6 +120,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
          * @type string
          */
         valign: 'top',
+
+        /**
+         * If true, the selection will persist when the menu is opened
+         * and closed multiple times.
+         *
+         * @attribute stickySelection
+         * @type boolean
+         * @default false
+         */
+        stickySelection: false,
 
         /**
          * The index of the selected menu item.
@@ -207,6 +242,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
        */
       get selection() {
         return this.$.menu.selection;
+      },
+
+      openedChanged: function() {
+        if (this.opened && !this.stickySelection) {
+          this.selected = null;
+        }
       }
 
     });
