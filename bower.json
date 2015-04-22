@@ -6,6 +6,7 @@
     "core-a11y-keys": "Polymer/core-a11y-keys#master",
     "core-collapse": "Polymer/core-collapse#master",
     "core-dropdown": "Polymer/core-dropdown#master",
+    "core-focusable": "Polymer/core-focusable#master",
     "core-icons": "Polymer/core-icons#master",
     "core-icon-button": "Polymer/core-icon-button#master",
     "core-item": "Polymer/core-item#master",
